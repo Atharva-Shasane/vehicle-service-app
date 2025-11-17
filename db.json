@@ -1,0 +1,198 @@
+{
+  "users": [
+    {
+      "id": "a1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "fullName": "Admin Sharma",
+      "mobile": "9800000001"
+    },
+    {
+      "id": "m1",
+      "username": "mech_rajesh",
+      "password": "mechrajesh123",
+      "role": "mechanic",
+      "fullName": "Rajesh Kumar",
+      "mobile": "9811111111"
+    },
+    {
+      "id": "m2",
+      "username": "mech_deepak",
+      "password": "mechdeepak123",
+      "role": "mechanic",
+      "fullName": "Deepak Singh",
+      "mobile": "9822222222"
+    },
+    {
+      "id": "m3",
+      "username": "mech_sanjay",
+      "password": "mechsanjay123",
+      "role": "mechanic",
+      "fullName": "Sanjay Verma",
+      "mobile": "9833333333"
+    },
+    {
+      "id": "c1",
+      "username": "priya_sharma",
+      "password": "priya123",
+      "role": "customer",
+      "fullName": "Priya Sharma",
+      "mobile": "9700000001"
+    },
+    {
+      "id": "c2",
+      "username": "arjun_reddy",
+      "password": "arjun123",
+      "role": "customer",
+      "fullName": "Arjun Reddy",
+      "mobile": "9700000002"
+    },
+    {
+      "id": "c3",
+      "username": "anjali_patel",
+      "password": "anjali123",
+      "role": "customer",
+      "fullName": "Anjali Patel",
+      "mobile": "9700000003"
+    },
+    {
+      "id": "c4",
+      "username": "rohan_mehta",
+      "password": "rohan123",
+      "role": "customer",
+      "fullName": "Rohan Mehta",
+      "mobile": "9700000004"
+    }
+  ],
+  "parts": [
+    {
+      "id": "p1",
+      "partName": "Oil Filter",
+      "quantity": 148
+    },
+    {
+      "id": "p2",
+      "partName": "Brake Pad (Set)",
+      "quantity": 75
+    },
+    {
+      "id": "p3",
+      "partName": "Spark Plug",
+      "quantity": 196
+    },
+    {
+      "id": "p4",
+      "partName": "Air Filter",
+      "quantity": 120
+    },
+    {
+      "id": "p5",
+      "partName": "Engine Oil (1L)",
+      "quantity": 300
+    },
+    {
+      "id": "p6",
+      "partName": "Coolant (1L)",
+      "quantity": 78
+    },
+    {
+      "id": "p7",
+      "partName": "Wiper Blade (Pair)",
+      "quantity": 89
+    }
+  ],
+  "jobCards": [
+    {
+      "id": "j1",
+      "customerId": "c1",
+      "vehicleNumberPlate": "MH-12-AB-1234",
+      "issueDescription": "Regular service and oil change.",
+      "status": "Dispatched",
+      "assignedMechanicId": "m3",
+      "partsUsed": [
+        {
+          "partId": "p1",
+          "partName": "Oil Filter",
+          "quantity": 2
+        },
+        {
+          "partId": "p6",
+          "partName": "Coolant (1L)",
+          "quantity": 1
+        }
+      ],
+      "createdDate": "2025-11-15T10:00:00.000Z",
+      "dispatchedDate": "2025-11-17T16:31:35.052Z"
+    },
+    {
+      "id": "j2",
+      "customerId": "c2",
+      "vehicleNumberPlate": "KA-01-CD-5678",
+      "issueDescription": "Brakes are squeaking loudly.",
+      "status": "Assigned",
+      "assignedMechanicId": "m1",
+      "partsUsed": [],
+      "createdDate": "2025-11-16T11:30:00.000Z"
+    },
+    {
+      "id": "j3",
+      "customerId": "c3",
+      "vehicleNumberPlate": "DL-03-EF-9012",
+      "issueDescription": "Car not starting, check battery and spark plugs.",
+      "status": "In Progress",
+      "assignedMechanicId": "m2",
+      "partsUsed": [
+        {
+          "partId": "p3",
+          "partName": "Spark Plug",
+          "quantity": 4
+        }
+      ],
+      "createdDate": "2025-11-17T09:15:00.000Z"
+    },
+    {
+      "id": "j4",
+      "customerId": "c4",
+      "vehicleNumberPlate": "GJ-05-GH-3456",
+      "issueDescription": "AC not cooling.",
+      "status": "Dispatched",
+      "assignedMechanicId": "m1",
+      "partsUsed": [
+        {
+          "partId": "p6",
+          "partName": "Coolant (1L)",
+          "quantity": 1
+        }
+      ],
+      "createdDate": "2025-11-14T14:00:00.000Z",
+      "dispatchedDate": "2025-11-15T17:00:00.000Z"
+    },
+    {
+      "id": "j5",
+      "customerId": "c1",
+      "vehicleNumberPlate": "MH-14-IJ-7890",
+      "issueDescription": "Wipers need replacement.",
+      "status": "Ready for Dispatch",
+      "assignedMechanicId": "m2",
+      "partsUsed": [
+        {
+          "partId": "p7",
+          "partName": "Wiper Blade (Pair)",
+          "quantity": 1
+        }
+      ],
+      "createdDate": "2025-11-17T12:00:00.000Z"
+    },
+    {
+      "id": "92cc3456-a00f-47a3-90fa-b19160ad5d4f",
+      "customerId": "c4",
+      "vehicleNumberPlate": "MH 47 S 4455",
+      "issueDescription": "Break Not working and engine overheating",
+      "status": "Assigned",
+      "assignedMechanicId": "m2",
+      "partsUsed": [],
+      "createdDate": "2025-11-17T16:33:01.481Z"
+    }
+  ]
+}

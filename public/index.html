@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Service Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Vehicle Service Center</h1>
+        <div id="user-info" class="hidden">
+            Welcome, <span id="user-fullname"></span>!
+            <button id="logout-button">Logout</button>
+        </div>
+    </header>
+
+    <main id="app-container">
+
+        <section id="login-view">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Login</button>
+                <p id="login-error" class="error-message"></p>
+            </form>
+        </section>
+
+        <section id="customer-dashboard" class="dashboard hidden">
+            <h2>My Service Requests</h2>
+            <div id="customer-status-list">
+            </div>
+
+            <hr>
+
+            <h3>Request New Service</h3>
+            <form id="customer-request-form">
+                <div class="form-group">
+                    <label for="vehicle-plate">Vehicle Number Plate</label>
+                    <input type="text" id="vehicle-plate" required>
+                </div>
+                <div class="form-group">
+                    <label for="issue-description">Describe the Issue</label>
+                    <textarea id="issue-description" rows="3" required></textarea>
+                </div>
+                <button type="submit">Submit Request</button>
+                <p id="customer-request-success" class="success-message"></p>
+            </form>
+        </section>
+
+        <section id="mechanic-dashboard" class="dashboard hidden">
+            <h2>My Assigned Jobs</h2>
+            <div id="mechanic-job-list">
+            </div>
+
+            <div id="log-part-modal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-button" id="close-modal">&times;</span>
+                    <h3>Log Parts for Job <span id="modal-job-id"></span></h3>
+                    <form id="log-part-form">
+                        <input type="hidden" id="modal-job-id-input">
+                        <div class="form-group">
+                            <label for="part-select">Select Part</label>
+                            <select id="part-select" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="part-quantity">Quantity Used</label>
+                            <input type="number" id="part-quantity" min="1" value="1" required>
+                        </div>
+                        <button type="submit">Log Part</button>
+                        <p id="log-part-error" class="error-message"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin-dashboard" class="dashboard hidden">
+            <h2>Admin Dashboard - All Jobs</h2>
+            <div id="admin-job-list">
+            </div>
+
+            <hr>
+
+            <h2>Inventory (Parts Log)</h2>
+            <div id="admin-parts-list">
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
