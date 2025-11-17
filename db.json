@@ -74,7 +74,7 @@
     {
       "id": "p2",
       "partName": "Brake Pad (Set)",
-      "quantity": 75
+      "quantity": 71
     },
     {
       "id": "p3",
@@ -130,9 +130,15 @@
       "customerId": "c2",
       "vehicleNumberPlate": "KA-01-CD-5678",
       "issueDescription": "Brakes are squeaking loudly.",
-      "status": "Assigned",
-      "assignedMechanicId": "m1",
-      "partsUsed": [],
+      "status": "Ready for Dispatch",
+      "assignedMechanicId": "m3",
+      "partsUsed": [
+        {
+          "partId": "p2",
+          "partName": "Brake Pad (Set)",
+          "quantity": 4
+        }
+      ],
       "createdDate": "2025-11-16T11:30:00.000Z"
     },
     {
@@ -193,6 +199,16 @@
       "assignedMechanicId": "m2",
       "partsUsed": [],
       "createdDate": "2025-11-17T16:33:01.481Z"
+    },
+    {
+      "id": "8174c806-d6e3-4bde-be0a-7e4f8a82ae96",
+      "customerId": "c2",
+      "vehicleNumberPlate": "MH 02 QW 1234",
+      "issueDescription": "Overheating",
+      "status": "Pending",
+      "assignedMechanicId": null,
+      "partsUsed": [],
+      "createdDate": "2025-11-17T16:43:01.761Z"
     }
   ]
 }

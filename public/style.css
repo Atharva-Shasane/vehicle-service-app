@@ -1,41 +1,109 @@
-/* Basic Setup */
+/* Custom properties for colors */
+:root {
+    --dark-bg: #1a1a2e; /* Deep dark background */
+    --card-bg: #21213e; /* Slightly lighter dark for cards */
+    --text-color: #e0e0e0; /* Light text for dark background */
+    --primary-color: #007bff; /* Original primary blue - will adjust for contrast */
+    --accent-blue: #00bcd4; /* A brighter blue accent */
+    --accent-red: #ef5350; /* For status like 'Warning' or highlighted car */
+    --border-color: #333355; /* Subtle border for dark elements */
+    --button-bg: #4a4e69; /* Darker button background */
+    --button-hover-bg: #6b708d; /* Lighter on hover */
+    --input-bg: #2c2c4a; /* Input background */
+    --header-bg: #16162a; /* Even darker header */
+}
+
+/* Global Reset & Base Styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Modern font stack */
     line-height: 1.6;
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
+    min-height: 100vh; /* Ensure full height */
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: var(--header-bg);
+    color: var(--text-color);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--accent-blue); /* Title in accent color */
+}
+
+#user-info {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#user-fullname {
+    font-weight: 600;
+    color: #a4eaff; /* Slightly brighter for username */
 }
 
 main {
-    max-width: 1000px;
+    flex-grow: 1; /* Allows main content to take available space */
+    max-width: 1200px; /* Increased max-width for more spacious feel */
     margin: 2rem auto;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    background-color: var(--dark-bg); /* Main background is same as body, content inside cards */
+    border-radius: 12px;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); */ /* Shadow might be too much for dark theme */
+    display: flex; /* Use flex for main content layout */
+    flex-direction: column; /* Stack sections vertically */
+    gap: 2rem;
 }
+
+section {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+section h2, section h3 {
+    color: var(--text-color);
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+}
+section h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
 
 /* Forms */
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .form-group {
@@ -44,8 +112,10 @@ form {
 }
 
 .form-group label {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-size: 0.95rem;
 }
 
 input[type="text"],
@@ -53,33 +123,74 @@ input[type="password"],
 input[type="number"],
 textarea,
 select {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    caret-color: var(--accent-blue); /* Cursor color */
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.3); /* Soft glow */
+    outline: none;
+}
+
+/* Buttons */
 button {
-    padding: 0.75rem;
-    background-color: #007bff;
-    color: white;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-bg);
+    color: var(--text-color);
     border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 6px;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s;
+    letter-spacing: 0.5px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover-bg);
+    transform: translateY(-1px);
 }
 
+button:active {
+    transform: translateY(0);
+}
+
+button#logout-button {
+    background-color: #6a0000; /* Darker red for logout */
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+button#logout-button:hover {
+    background-color: #8b0000;
+}
+
+button[type="submit"] {
+    background-color: var(--accent-blue);
+    color: #1a1a2e; /* Dark text on bright button */
+}
+button[type="submit"]:hover {
+    background-color: #00a8bd; /* Slightly darker accent on hover */
+}
+
+
 button.secondary {
-    background-color: #6c757d;
+    background-color: #5a5a7a;
 }
 button.secondary:hover {
-    background-color: #5a6268;
+    background-color: #72729e;
 }
 
 /* Utility Classes */
@@ -87,104 +198,200 @@ button.secondary:hover {
     display: none !important;
 }
 .error-message {
-    color: #d9534f;
-    font-size: 0.9rem;
-    margin: 0;
+    color: var(--accent-red); /* Red for errors */
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 .success-message {
-    color: #5cb85c;
-    font-size: 0.9rem;
-    margin: 0;
+    color: #5cb85c; /* Green for success */
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 /* Dashboards & Job Cards */
 hr {
     border: 0;
     height: 1px;
-    background: #eee;
+    background: var(--border-color);
     margin: 2rem 0;
 }
 
 .job-card {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 1rem;
+    padding: 1.5rem;
     margin-bottom: 1rem;
-    background: #fafafa;
+    background: #2a2a4e; /* Slightly different background for job cards */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .job-card h4 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: #0056b3;
+    margin-bottom: 0.75rem;
+    color: var(--accent-blue);
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .job-card p {
-    margin: 0.25rem 0;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.job-card p strong {
+    color: #fff;
 }
 
 .job-card .status {
     font-weight: 700;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px; /* Pill shape */
     display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.status-Pending { background-color: #f0ad4e; color: white; }
-.status-Assigned { background-color: #0275d8; color: white; }
-.status-In { background-color: #5bc0de; color: white; } /* "In Progress" */
-.status-Ready { background-color: #5cb85c; color: white; } /* "Ready for Dispatch" */
-.status-Dispatched { background-color: #6c757d; color: white; }
+/* Status Colors - Adapted for dark theme */
+.status-Pending { background-color: #d8973c; color: #1a1a2e; } /* Orange-brown */
+.status-Assigned { background-color: #3f90b9; color: #1a1a2e; } /* Medium Blue */
+.status-In { background-color: #2a7e73; color: #1a1a2e; } /* Teal-green for In Progress */
+.status-Ready { background-color: #5cb85c; color: #1a1a2e; } /* Brighter green */
+.status-Dispatched { background-color: #6a6a8a; color: #1a1a2e; } /* Muted purple-gray */
+
+.parts-log {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.parts-log h5 {
+    margin: 0 0 0.5rem 0;
+    color: #a4eaff;
+    font-size: 1rem;
+}
 
 .parts-log ul {
     font-size: 0.9rem;
     padding-left: 20px;
     margin-top: 5px;
+    list-style-type: disc;
+}
+.parts-log li {
+    margin-bottom: 0.25rem;
 }
 
 .job-actions {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
     display: flex;
-    gap: 0.5rem;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 0.75rem;
     align-items: center;
+    justify-content: flex-end; /* Align actions to the right */
 }
 
-/* Modal */
+/* Admin Specific */
+#admin-job-list .job-card,
+#customer-status-list .job-card,
+#mechanic-job-list .job-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid columns */
+    gap: 1rem;
+    align-items: start;
+}
+
+#admin-job-list .job-card > div,
+#customer-status-list .job-card > div,
+#mechanic-job-list .job-card > div {
+    /* Styles for individual info blocks within a job card if needed */
+}
+
+/* Ensure labels are visible in dropdowns */
+#admin-job-list .form-group label {
+    color: var(--text-color);
+}
+
+
+/* Modal Styles - Adjusted for dark theme */
 .modal {
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
 }
 
 .modal-content {
-    background-color: #fefefe;
-    padding: 2rem;
-    border: 1px solid #888;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 8px;
-    position: relative;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
+}
+
+.modal-content h3 {
+    color: var(--accent-blue);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
 }
 
 .close-button {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: black;
+    color: var(--text-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    main {
+        margin: 1rem auto;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    .job-card h4 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .job-card .status {
+        width: auto;
+        text-align: center;
+    }
+
+    .job-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }
